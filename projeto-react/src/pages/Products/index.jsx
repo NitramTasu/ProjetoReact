@@ -65,6 +65,8 @@ class Products extends Component {
               </h1>
             </Grid>
             <Grid className="mdl-cell mdl-cell--6-col">
+              <div>{data.sold_quantity} Vendidos</div>
+
               <h4>{data.title}</h4>
               <p>Preço: {Numeral(data.base_price).format("$0.00")}</p>
               <p>
