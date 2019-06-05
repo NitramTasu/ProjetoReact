@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 import Button from "../../components/Button";
-import Example from "../../components/Demo"
-
+import Example from "../../components/Search";
+import "./style.css";
 class Search extends Component {
   constructor() {
     super();
@@ -29,22 +29,21 @@ class Search extends Component {
   }
   renderItem(item) {
     return (
-      <li key={item.id}>
+      <div class="item" key={item.id}>
         <span>{item.id}</span>
         <span>{item.title}</span>
         <Link to={`/product/${item.id}`}> Abrir produto</Link>
-      </li>
+      </div>
     );
   }
 
   render() {
     return (
       <Fragment>
-          <Example></Example>
         <div>
           <input type="text" onChange={this.onSearch} />
         </div>
-        <ul>{this.state.results.map(this.renderItem)}</ul>
+        <div class="lista">{this.state.results.map(this.renderItem)}</div>
       </Fragment>
     );
   }

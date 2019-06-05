@@ -4,7 +4,7 @@ import logo from "../../assets/logo.png";
 
 import "./style.css";
 
-import Example from "../../components/Demo";
+import SearchComponent from "../../components/Search";
 
 const Header = () => (
   <div>
@@ -13,7 +13,9 @@ const Header = () => (
         <div className="mdl-cell--12-col">
           <img alt="Logo" src={logo} className="header__logo" />
         </div>
-        <div />
+        <div>
+          <SearchComponent />
+        </div>
       </div>
     </header>
   </div>

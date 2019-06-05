@@ -1,89 +1,89 @@
-import React, { Component, Button }  from 'react';
-import Autosuggest from 'react-autosuggest';
+import React, { Component, Button } from "react";
+import Autosuggest from "react-autosuggest";
+import axios from "axios";
+import "./style.css";
 const languages = [
   {
-    name: 'C',
+    name: "C",
     year: 1972
   },
   {
-    name: 'C#',
+    name: "C#",
     year: 2000
   },
   {
-    name: 'C++',
+    name: "C++",
     year: 1983
   },
   {
-    name: 'Clojure',
+    name: "Clojure",
     year: 2007
   },
   {
-    name: 'Elm',
+    name: "Elm",
     year: 2012
   },
   {
-    name: 'Go',
+    name: "Go",
     year: 2009
   },
   {
-    name: 'Haskell',
+    name: "Haskell",
     year: 1990
   },
   {
-    name: 'Java',
+    name: "Java",
     year: 1995
   },
   {
-    name: 'Javascript',
+    name: "Javascript",
     year: 1995
   },
   {
-    name: 'Perl',
+    name: "Perl",
     year: 1987
   },
   {
-    name: 'PHP',
+    name: "PHP",
     year: 1995
   },
   {
-    name: 'Python',
+    name: "Python",
     year: 1991
   },
   {
-    name: 'Ruby',
+    name: "Ruby",
     year: 1995
   },
   {
-    name: 'Scala',
+    name: "Scala",
     year: 2003
   }
 ];
 
 // https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions#Using_Special_Characters
 function escapeRegexCharacters(str) {
-  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return str.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
 
 function getSuggestions(value) {
   const escapedValue = escapeRegexCharacters(value.trim());
-  
-  if (escapedValue === '') {
+
+  if (escapedValue === "") {
     return [];
   }
 
-  const regex = new RegExp('^' + escapedValue, 'i');
+  const regex = new RegExp("^" + escapedValue, "i");
 
   return languages.filter(language => regex.test(language.name));
 }
 
 function getSuggestionValue(suggestion) {
-  return suggestion.name;
+  return suggestion.title;
 }
 
 function renderSuggestion(suggestion) {
-  return (
-    <span>{suggestion.name}</span>
-  );
+  return <span>{suggestion.title}</span>;
 }
 
 class App extends React.Component {
@@ -91,9 +91,9 @@ class App extends React.Component {
     super();
 
     this.state = {
-      value: '',
+      value: "",
       suggestions: []
-    };    
+    };
   }
 
   onChange = (event, { newValue, method }) => {
@@ -101,11 +101,18 @@ class App extends React.Component {
       value: newValue
     });
   };
-  
+
   onSuggestionsFetchRequested = ({ value }) => {
-    this.setState({
-      suggestions: getSuggestions(value)
-    });
+    axios
+      .get(`https://api.mercadolibre.com/sites/MLU/search?q=${value}`)
+      .then(({ data }) => {
+        this.setState({
+          suggestions: data.results.filter(item => {
+            console.log("item", item.title);
+            return item.title;
+          })
+        });
+      });
   };
 
   onSuggestionsClearRequested = () => {
@@ -123,16 +130,16 @@ class App extends React.Component {
     };
 
     return (
-      <Autosuggest 
+      <Autosuggest
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
         getSuggestionValue={getSuggestionValue}
         renderSuggestion={renderSuggestion}
-        inputProps={inputProps} />
+        inputProps={inputProps}
+      />
     );
   }
 }
 
-export default App 
-
+export default App;
