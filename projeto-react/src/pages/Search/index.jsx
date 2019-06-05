@@ -6,6 +6,7 @@ import axios from "axios";
 import Button from "../../components/Button";
 import Example from "../../components/Search";
 import "./style.css";
+
 class Search extends Component {
   constructor() {
     super();
@@ -40,10 +41,7 @@ class Search extends Component {
   render() {
     return (
       <Fragment>
-        <div>
-          <input type="text" onChange={this.onSearch} />
-        </div>
-        <div class="lista">{this.state.results.map(this.renderItem)}</div>
+        <div class="space" />
       </Fragment>
     );
   }
