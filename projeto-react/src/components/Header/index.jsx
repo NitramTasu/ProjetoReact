@@ -14,7 +14,7 @@ const Header = () => (
             <img alt="Logo" src={logo} className="header__logo" />
           </Link>
         </div>
-        <div className="mdl-cell--3-col">
+        <div className="mdl-cell--6-col">
           <SearchComponent />
         </div>
       </div>

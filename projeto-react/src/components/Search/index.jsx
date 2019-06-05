@@ -4,6 +4,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./style.css";
+import Box from "@material-ui/core/Box";
 
 function getSuggestionValue(suggestion) {
   return suggestion.title;
@@ -11,12 +12,12 @@ function getSuggestionValue(suggestion) {
 
 function renderSuggestion(suggestion) {
   return (
-    <div key={suggestion.id}>
+    <Box key={suggestion.id}>
       <Link className="link" to={`/product/${suggestion.id}`}>
         <SearchIcon className="icon" />
         <span>{suggestion.title}</span>
       </Link>
-    </div>
+    </Box>
   );
 }
 
