@@ -1,17 +1,18 @@
 import React from "react";
-
 import logo from "../../assets/logo.png";
-
-import "./style.css";
+import { Link } from "react-router-dom";
 
 import SearchComponent from "../../components/Search";
+import "./style.css";
 
 const Header = () => (
   <div>
     <header className="header">
       <div className="mdl-grid">
         <div className="mdl-cell--2-col">
-          <img alt="Logo" src={logo} className="header__logo" />
+          <Link to="/">
+            <img alt="Logo" src={logo} className="header__logo" />
+          </Link>
         </div>
         <div className="mdl-cell--3-col">
           <SearchComponent />

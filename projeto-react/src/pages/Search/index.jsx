@@ -1,10 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
-
 import axios from "axios";
-
-import Button from "../../components/Button";
-import Example from "../../components/Search";
 import "./style.css";
 
 class Search extends Component {

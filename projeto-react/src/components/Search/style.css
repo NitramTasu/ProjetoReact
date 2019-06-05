@@ -65,3 +65,7 @@ body {
   text-decoration: none;
   color: black;
 }
+
+.icon {
+  padding-right: 10px;
+}

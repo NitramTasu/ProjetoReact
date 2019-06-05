@@ -1,5 +1,6 @@
 import React, { Component, Button } from "react";
 import Autosuggest from "react-autosuggest";
+import SearchIcon from "@material-ui/icons/Search";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./style.css";
@@ -12,6 +13,7 @@ function renderSuggestion(suggestion) {
   return (
     <div key={suggestion.id}>
       <Link className="link" to={`/product/${suggestion.id}`}>
+        <SearchIcon className="icon" />
         <span>{suggestion.title}</span>
       </Link>
     </div>
