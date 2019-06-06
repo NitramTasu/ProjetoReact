@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 
 import Button from "../../components/Button";
-
+import Box from "@material-ui/core/Box";
 import axios from "axios";
 import Grid from "@material-ui/core/Grid";
 import "./style.css";
@@ -55,16 +55,13 @@ class Products extends Component {
           <Grid
             className="mdl-grid mdl-shadow--6dp card"
             container
+            xs={10}
             direction="row"
-            justify="flex-start"
-            alignItems="flex-start"
           >
-            <Grid>
-              <h1>
-                <img src={data.pictures[0].url} />
-              </h1>
-            </Grid>
-            <Grid className="mdl-cell mdl-cell--6-col">
+            <Box width="50%">
+              <img src={data.pictures[0].url} />
+            </Box>
+            <div className="mdl-cell mdl-cell--5-col">
               <div>{data.sold_quantity} Vendidos</div>
 
               <h4>{data.title}</h4>
@@ -72,9 +69,9 @@ class Products extends Component {
               <p>
                 <Button label="Comprar" />
               </p>
-            </Grid>
-            <Grid item xs={6} al>
-              <p>{data.description}</p>
+            </div>
+            <Grid item xs={12} sm={6}>
+              <Box p={2}>{data.description}</Box>
             </Grid>
           </Grid>
         </Fragment>
