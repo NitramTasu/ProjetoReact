@@ -7,7 +7,6 @@ import Grid from "@material-ui/core/Grid";
 import "./style.css";
 import Numeral from "numeral";
 import "numeral/locales/pt-br";
-import Paper from "@material-ui/core/Paper";
 Numeral.locale("pt-br");
 
 class Products extends Component {
@@ -53,11 +52,16 @@ class Products extends Component {
     return (
       <div>
         <Fragment>
-          <Grid container direction="row" justify="center">
-            <Grid item>
+          <Grid
+            className="mdl-grid mdl-shadow--6dp card"
+            container
+            xs={10}
+            direction="row"
+          >
+            <Box width="50%">
               <img src={data.pictures[0].url} />
-            </Grid>
-            <Grid item>
+            </Box>
+            <div className="mdl-cell mdl-cell--5-col">
               <div>{data.sold_quantity} Vendidos</div>
 
               <h4>{data.title}</h4>
@@ -65,8 +69,8 @@ class Products extends Component {
               <p>
                 <Button label="Comprar" />
               </p>
-            </Grid>
-            <Grid item>
+            </div>
+            <Grid item xs={12} sm={6}>
               <Box p={2}>{data.description}</Box>
             </Grid>
           </Grid>
