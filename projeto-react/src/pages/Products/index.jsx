@@ -18,7 +18,7 @@ class Products extends Component {
       loading: true,
       data: {}
     };
-    console.log(props.match.params.id);
+    console.log("Inicia", props.match.params.id);
   }
 
   componentDidMount() {
@@ -44,10 +44,18 @@ class Products extends Component {
         console.log(err);
       });
   }
+  formatPrice(price) {
+    if (price.indexOf(".") != -1) {
+      price.replace(".", ",");
+      return `R$${price}`;
+    } else {
+      return `R$${price},00`;
+    }
+  }
 
   renderContent() {
     const { data } = this.state;
-    console.log(data);
+    console.log("render", data);
 
     return (
       <div>
@@ -55,7 +63,6 @@ class Products extends Component {
           <Grid
             className="mdl-grid mdl-shadow--6dp card"
             container
-            xs={10}
             direction="row"
           >
             <Box width="50%">
@@ -65,7 +72,7 @@ class Products extends Component {
               <div>{data.sold_quantity} Vendidos</div>
 
               <h4>{data.title}</h4>
-              <p>Preço: {Numeral(data.base_price).format("$0.00")}</p>
+              <p>Preço: {this.formatPrice(data.price.toString())}</p>
               <p>
                 <Button label="Comprar" />
               </p>
