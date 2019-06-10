@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import "./style.css";
+import { searchProduct } from "../../services/ProductApi";
 
 class Search extends Component {
   constructor() {
@@ -16,13 +17,11 @@ class Search extends Component {
 
   onSearch(event) {
     const value = event.currentTarget.value;
-    axios
-      .get(`https://api.mercadolibre.com/sites/MLU/search?q=${value}`)
-      .then(({ data }) => {
-        this.setState({
-          results: data.results
-        });
+    searchProduct(value).then(({ data }) => {
+      this.setState({
+        results: data.results
       });
+    });
   }
   renderItem(item) {
     return (

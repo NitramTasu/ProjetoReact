@@ -7,6 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import "./style.css";
 import Numeral from "numeral";
 import "numeral/locales/pt-br";
+import { getProduct } from "../../services/ProductApi";
 Numeral.locale("pt-br");
 
 class Products extends Component {
@@ -22,16 +23,8 @@ class Products extends Component {
   }
 
   componentDidMount() {
-    axios
-      .all([
-        axios.get(`https://api.mercadolibre.com/items/${this.state.id}`),
-        axios.get(
-          `https://api.mercadolibre.com/items/${this.state.id}/description`
-        )
-      ])
+    getProduct(this.state.id)
       .then(([item, description]) => {
-        console.log(item);
-        console.log(description);
         this.setState({
           data: {
             ...item.data,
