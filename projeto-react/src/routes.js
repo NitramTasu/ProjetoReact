@@ -10,7 +10,9 @@ const Routes = () => (
 
     <Route path="/product/:id" component={Products} />
 
-    <Route component={() => <div style="height: 100px;">Page not found</div>} />
+    <Route
+      component={() => <div style="height: 10000px;">dPage not found</div>}
+    />
   </Switch>
 );
 
