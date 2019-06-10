@@ -5,6 +5,8 @@ Projeto de estudo do React.
 
 https://nitramtasu.github.io/ProjetoReact/
 
+Para ver direto do celular, abrar o leitor de QRCode do celular:
+
 ![alt text](https://github.com/NitramTasu/ProjetoReact/blob/master/projeto-react/ReactQRcode.png)
 
 Para rodar o problema na máquina depois de clonar:
