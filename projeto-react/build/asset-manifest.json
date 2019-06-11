@@ -1,5 +1,6 @@
 {
   "files": {
+<<<<<<< HEAD
     "main.css": "/ProjetoReact/static/css/main.26925e80.chunk.css",
     "main.js": "/ProjetoReact/static/js/main.a4a1364b.chunk.js",
     "main.js.map": "/ProjetoReact/static/js/main.a4a1364b.chunk.js.map",
@@ -12,5 +13,19 @@
     "service-worker.js": "/ProjetoReact/service-worker.js",
     "static/css/main.26925e80.chunk.css.map": "/ProjetoReact/static/css/main.26925e80.chunk.css.map",
     "static/media/logo.svg": "/ProjetoReact/static/media/logo.5d5d9eef.svg"
+=======
+    "main.css": "/ProjetoReact/static/css/main.9a994c8d.chunk.css",
+    "main.js": "/ProjetoReact/static/js/main.44c13aad.chunk.js",
+    "main.js.map": "/ProjetoReact/static/js/main.44c13aad.chunk.js.map",
+    "runtime~main.js": "/ProjetoReact/static/js/runtime~main.3fdf4743.js",
+    "runtime~main.js.map": "/ProjetoReact/static/js/runtime~main.3fdf4743.js.map",
+    "static/js/2.daae940b.chunk.js": "/ProjetoReact/static/js/2.daae940b.chunk.js",
+    "static/js/2.daae940b.chunk.js.map": "/ProjetoReact/static/js/2.daae940b.chunk.js.map",
+    "index.html": "/ProjetoReact/index.html",
+    "precache-manifest.763ffeaca49c8a2469eaa197091c5de8.js": "/ProjetoReact/precache-manifest.763ffeaca49c8a2469eaa197091c5de8.js",
+    "service-worker.js": "/ProjetoReact/service-worker.js",
+    "static/css/main.9a994c8d.chunk.css.map": "/ProjetoReact/static/css/main.9a994c8d.chunk.css.map",
+    "static/media/logo.svg": "/ProjetoReact/static/media/logo.ee7cd8ed.svg"
+>>>>>>> 21ea89c9c045a77f9df13e39c8fda3f1542af861
   }
 }
