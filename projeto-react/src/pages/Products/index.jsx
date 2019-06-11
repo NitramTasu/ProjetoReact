@@ -5,10 +5,7 @@ import Box from "@material-ui/core/Box";
 import axios from "axios";
 import Grid from "@material-ui/core/Grid";
 import "./style.css";
-import Numeral from "numeral";
-import "numeral/locales/pt-br";
 import { getProduct } from "../../services/ProductApi";
-Numeral.locale("pt-br");
 
 class Products extends Component {
   constructor(props) {

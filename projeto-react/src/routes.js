@@ -8,9 +8,11 @@ const Routes = () => (
   <Switch>
     <Route exact path="/" component={Search} />
 
+    <Route exact path="/ProjetoReact" component={Search} />
+
     <Route path="/product/:id" component={Products} />
 
-    <Route component={() => <div style="height: 100px;">Page not found</div>} />
+    <Route component={() => <div>Page not found</div>} />
   </Switch>
 );
 
